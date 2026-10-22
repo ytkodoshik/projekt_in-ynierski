@@ -1,0 +1,171 @@
+% Autor szablonu: dr Roman Czapla
+% Kompilacja: pdfLaTeX (dwukrotnie, aby zaktualizować spis treści).
+% Wymagane logo uczelni: images/logo.png (ścieżka względem pliku głównego).
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor,graphicx,tabularx,booktabs,array,enumitem,fancyhdr,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{344B59}
+\definecolor{hintcolor}{HTML}{58636A}
+\hypersetup{pdfauthor={},pdftitle={Projekt inżynierski -- Dokumentacja projektowa}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Projekt inżynierski}
+\fancyhead[R]{\small Dokumentacja projektowa}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Podpowiedzi są widoczne podczas wypełniania szablonu.
+% Przed oddaniem: uzupełnij pola, zastąp przykłady własną treścią
+% i zmień poniższy przełącznik na \podpowiedzifalse.
+\newif\ifpodpowiedzi
+\podpowiedzitrue
+%\podpowiedzifalse
+\newcommand{\podpowiedz}[1]{\ifpodpowiedzi\par\begingroup\small\color{hintcolor}\textit{Wskazówka: #1}\par\endgroup\fi}
+\newcommand{\pole}[1]{\textnormal{[#1]}}
+
+% Dane dokumentu -- uzupełnij w jednym miejscu.
+% Ścieżkę logo można zmienić poniżej.
+\newcommand{\pliklogo}{images/logo.png}
+\newcommand{\logouczelni}{%
+  \includegraphics[width=0.8\textwidth,height=40mm,keepaspectratio]{\pliklogo}%
+}
+\newcommand{\tytulprojektu}{\pole{Tytuł projektu}}
+\newcommand{\rokakademicki}{\pole{2026/2027}}
+\newcommand{\semestrprojektu}{\pole{zimowy / letni}}
+\newcommand{\datadokumentu}{\pole{dd.mm.rrrr}}
+\newcommand{\wersjadokumentu}{\pole{1.0}}
+% Zespół dwuosobowy tylko za zgodą dyrekcji: zmień na \trzeciaosobafalse.
+\newif\iftrzeciaosoba
+\trzeciaosobatrue
+\newcommand{\studentA}{\pole{Imię i nazwisko osoby 1}}
+\newcommand{\studentB}{\pole{Imię i nazwisko osoby 2}}
+\newcommand{\studentC}{\pole{Imię i nazwisko osoby 3}}
+\newcommand{\albumA}{\pole{numer albumu}}
+\newcommand{\albumB}{\pole{numer albumu}}
+\newcommand{\albumC}{\pole{numer albumu}}
+\newcommand{\prowadzacyA}{\pole{Stopień lub tytuł, imię i nazwisko}}
+\newcommand{\prowadzacyB}{\pole{Stopień lub tytuł, imię i nazwisko}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Uniwersytet Komisji Edukacji Narodowej w Krakowie\par}
+{\normalsize Instytut Bezpieczeństwa i Informatyki\par}
+\vspace{8mm}
+\logouczelni\par
+\vspace{10mm}
+{\Large\bfseries\color{accent} PROJEKT INŻYNIERSKI\par}
+\vspace{3mm}
+{\large Dokumentacja projektowa\par}
+\vspace{15mm}
+{\LARGE\bfseries\tytulprojektu\par}
+\vspace{15mm}
+{\small ZESPÓŁ PROJEKTOWY\par}
+\vspace{3mm}
+\begin{tabular}{ll}
+\studentA & Nr albumu: \albumA\\
+\studentB & Nr albumu: \albumB
+\iftrzeciaosoba\\
+\studentC & Nr albumu: \albumC\fi
+\end{tabular}
+\vspace{12mm}
+
+{\small PROWADZĄCY ZAJĘCIA PROJEKTOWE\par}
+\vspace{3mm}
+\prowadzacyA\par
+\prowadzacyB\par
+\vfill
+Rok akademicki: \rokakademicki\quad Semestr: \semestrprojektu\par
+Data dokumentu: \datadokumentu\quad Wersja: \wersjadokumentu\par
+\vspace{6mm}
+Kraków\par
+
+\end{titlepage}
+
+\tableofcontents
+\podpowiedz{Dokument opisuje finalne rozwiązanie i umożliwia zrozumienie jego budowy oraz dalszą pracę nad projektem. Zakres uzgodnij z prowadzącymi: usuń podsekcje nieadekwatne do projektu i dodaj potrzebne. UML, baza danych i opis kodu nie są obowiązkowe dla każdego rodzaju projektu. Opis przebiegu pracy i indywidualnego wkładu należy do sprawozdania końcowego. Uzupełnij pola i wyłącz podpowiedzi przed oddaniem.}
+
+\section{Szczegółowa dokumentacja projektowa}
+\subsection{Zakres i identyfikacja rozwiązania}
+\podpowiedz{Opisz przeznaczenie projektu, najważniejsze wymagania oraz wersję, której dotyczy dokumentacja. Wskaż, gdzie znajdują się pliki źródłowe i zasoby: repozytorium dla projektu programistycznego lub inne miejsce uzgodnione z prowadzącymi. Podaj commit, tag albo oznaczenie wersji plików.}
+\textbf{Przeznaczenie i zakres:} \pole{opis.}\par
+\textbf{Wersja projektu:} \pole{oznaczenie i data.}\par
+\textbf{Materiały źródłowe:} \pole{lokalizacja i organizacja.}
+
+\newpage
+\subsection{Architektura i organizacja projektu}
+\podpowiedz{Przedstaw główne elementy rozwiązania, ich odpowiedzialności i powiązania. Dla aplikacji opisz komponenty i przepływ danych; dla animacji 3D -- organizację scen, obiektów, zasobów i etapów przetwarzania. Wyjaśnij najważniejsze decyzje i zależności. Dodaj schemat, jeśli pomaga zrozumieć rozwiązanie.}
+\pole{Budowa rozwiązania, struktura plików i uzasadnienie decyzji.}
+
+\subsection{Modele i diagramy projektowe}
+\podpowiedz{Dobierz diagramy do projektu. Dla oprogramowania mogą to być diagramy UML: klas, przypadków użycia, sekwencji, stanów lub komponentów. Dla innych projektów wykorzystaj np. schemat sceny, storyboard lub diagram procesu. Każdy rysunek opatrz podpisem i omów w tekście, stosując odwołania przez \texttt{\textbackslash ref}. Nie twórz diagramów wyłącznie w celu wypełnienia szablonu.}
+\pole{Modele i diagramy z objaśnieniami.}
+% Przykład rysunku -- odkomentuj po dodaniu pliku:
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{images/architektura.png}
+%   \caption{Architektura rozwiązania.}
+%   \label{fig:architektura}
+% \end{figure}
+% Odwołanie: Na rysunku \ref{fig:architektura} przedstawiono ...
+
+\subsection{Dane, baza danych i zasoby}
+\podpowiedz{Jeśli projekt korzysta z bazy danych, opisz schemat, tabele, klucze, relacje, ograniczenia i istotne procedury. Dla innych danych lub zasobów określ formaty, strukturę, pochodzenie oraz sposób przygotowania i wykorzystania. Dla animacji mogą to być modele, tekstury, materiały i pliki dźwiękowe. Wskaż zasoby własne i zewnętrzne oraz warunki ich wykorzystania.}
+\pole{Struktura danych lub zasobów i sposób ich wykorzystania.}
+
+\subsection{Implementacja i najważniejsze rozwiązania}
+\podpowiedz{Dla projektu programistycznego opisz istotne moduły, klasy, funkcje, interfejsy i algorytmy. Podaj znaczenie parametrów, wyniki, ograniczenia i obsługę błędów tam, gdzie jest to potrzebne. Nie wymaga się przepisywania całego kodu ani opisu każdej zmiennej. Dokumentację generowaną z kodu można dołączyć lub wskazać jako osobny materiał.}
+\podpowiedz{Dla projektu bez kodu opisz odpowiednie metody wykonania, np. modelowanie, rigging, animację, oświetlenie, rendering i montaż. Podaj istotne ustawienia i uzasadnij ich dobór. Usuń wskazówki nieodnoszące się do projektu.}
+\pole{Opis zastosowanych metod i kluczowych elementów wykonania.}
+
+\newpage
+\subsection{Mechanizmy AI w rozwiązaniu}
+\podpowiedz{Ta podsekcja dotyczy AI stanowiącej część projektu. Opisz model lub usługę, wersję, zadanie, dane wejściowe i wyjściowe, integrację, konfigurację i ograniczenia. Jeśli rozwiązanie obejmuje uczenie, opisz dane, podział zbiorów, parametry i ocenę wyników. Dla usług zewnętrznych wskaż wymagane połączenia i zależności, bez ujawniania kluczy dostępowych. Jeśli AI tylko wspomagała pracę zespołu, jej wykorzystanie opisz w sprawozdaniu, a tę podsekcję usuń.}
+\pole{Budowa i działanie mechanizmów AI -- jeśli występują.}
+
+\subsection{Środowisko i odtworzenie projektu}
+\podpowiedz{Opisz środowisko potrzebne do dalszej edycji, budowania lub odtworzenia rezultatu: system operacyjny, sprzęt, programy, biblioteki i ich wersje. Dla animacji wskaż np. wersję programu, dodatki, silnik renderujący i ustawienia eksportu. Szczegółową instrukcję instalacji i konfiguracji można wskazać w osobnej dokumentacji instalacyjno-konfiguracyjnej, jeśli jest wymagana. Nie powielaj tych samych informacji; podaj odwołanie do odpowiedniej sekcji.}
+\begin{tabularx}{\textwidth}{@{}Y l Y@{}}
+\toprule
+Narzędzie / zależność & Wersja & Zastosowanie\\
+\midrule
+\pole{nazwa} & \pole{wersja} & \pole{rola w projekcie}\\
+\pole{nazwa} & \pole{wersja} & \pole{rola w projekcie}\\
+\bottomrule
+\end{tabularx}
+
+\textbf{Odtworzenie rezultatu:}
+\pole{kroki edycji, budowania, renderowania lub innego przetwarzania; ewentualne odwołania do dokumentacji instalacyjno-konfiguracyjnej.}
+
+\subsection{Testy i weryfikacja}
+\podpowiedz{Powiąż sprawdzenia z wymaganiami. Opisz warunki, dane lub scenariusze, oczekiwane rezultaty, uzyskane wyniki i wnioski. Dobierz metody do charakteru projektu: testy oprogramowania, sprawdzenia prototypu, kontrola jakości animacji lub ocena mechanizmu AI. Wskaż ograniczenia przeprowadzonych sprawdzeń.}
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\toprule
+Wymaganie / scenariusz & Sposób sprawdzenia & Wynik i wniosek\\
+\midrule
+\pole{wymaganie} & \pole{metoda i warunki} & \pole{wynik}\\
+\pole{wymaganie} & \pole{metoda i warunki} & \pole{wynik}\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Ograniczenia i dalszy rozwój}
+\podpowiedz{Wskaż znane błędy, ograniczenia techniczne, niespełnione wymagania i zależności wpływające na dalszą pracę. Oddziel stan istniejący od propozycji rozwoju.}
+\pole{Ograniczenia i możliwe rozszerzenia.}
+
+\subsection{Źródła i materiały referencyjne}
+\podpowiedz{Wymień dokumentację, publikacje, biblioteki, modele i zasoby przywołane w dokumencie. Dla źródeł internetowych podaj tytuł, adres i datę dostępu. Wskaż licencje lub inne warunki wykorzystania materiałów zewnętrznych. Nie pozostawiaj fikcyjnych źródeł.}
+\pole{Wykaz źródeł i materiałów referencyjnych.}
+\end{document}

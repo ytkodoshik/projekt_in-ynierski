@@ -1,0 +1,184 @@
+% Autor szablonu: dr Roman Czapla
+% Kompilacja: pdfLaTeX (dwukrotnie, aby zaktualizować spis treści).
+% Wymagane logo uczelni: images/logo.png (ścieżka względem pliku głównego).
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor,graphicx,tabularx,booktabs,array,enumitem,fancyhdr,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{344B59}
+\definecolor{hintcolor}{HTML}{58636A}
+\hypersetup{pdfauthor={},pdftitle={Projekt inżynierski - Wybór projektu}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Projekt inżynierski}
+\fancyhead[R]{\small Wybór projektu}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Podpowiedzi są widoczne podczas wypełniania szablonu.
+% Przed oddaniem: uzupełnij pola, zastąp przykłady własną treścią
+% i zmień poniższy przełącznik na \podpowiedzifalse.
+\newif\ifpodpowiedzi
+\podpowiedzitrue
+%\podpowiedzifalse
+\newcommand{\podpowiedz}[1]{\ifpodpowiedzi\par\begingroup\small\color{hintcolor}\textit{Wskazówka: #1}\par\endgroup\fi}
+\newcommand{\pole}[1]{\textnormal{[#1]}}
+
+% Dane dokumentu - uzupełnij w jednym miejscu.
+% Ścieżkę logo można zmienić poniżej.
+\newcommand{\pliklogo}{images/logo.png}
+\newcommand{\logouczelni}{%
+  \includegraphics[width=0.55\textwidth,height=40mm,keepaspectratio]{\pliklogo}%
+}
+\newcommand{\tytulprojektu}{\pole{Tytuł projektu}}
+\newcommand{\rokakademicki}{\pole{2026/2027}}
+\newcommand{\semestrprojektu}{\pole{zimowy / letni}}
+\newcommand{\datadokumentu}{\pole{dd.mm.rrrr}}
+\newcommand{\wersjadokumentu}{\pole{1.0}}
+\newcommand{\studentA}{\pole{Imię i nazwisko osoby 1}}
+\newcommand{\studentB}{\pole{Imię i nazwisko osoby 2}}
+\newcommand{\studentC}{\pole{Imię i nazwisko osoby 3}}
+\newcommand{\albumA}{\pole{numer albumu}}
+\newcommand{\albumB}{\pole{numer albumu}}
+\newcommand{\albumC}{\pole{numer albumu}}
+\newcommand{\prowadzacyA}{\pole{Stopień lub tytuł, imię i nazwisko}}
+\newcommand{\prowadzacyB}{\pole{Stopień lub tytuł, imię i nazwisko}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Uniwersytet Komisji Edukacji Narodowej w Krakowie\par}
+{\normalsize Instytut Bezpieczeństwa i Informatyki\par}
+\vspace{8mm}
+\logouczelni\par
+\vspace{10mm}
+{\Large\bfseries\color{accent} PROJEKT INŻYNIERSKI\par}
+\vspace{3mm}
+{\large Wybór projektu\par}
+\vspace{15mm}
+{\LARGE\bfseries\tytulprojektu\par}
+\vspace{15mm}
+{\small ZESPÓŁ PROJEKTOWY\par}
+\vspace{3mm}
+\begin{tabular}{ll}
+\studentA & Nr albumu: \albumA\\
+\studentB & Nr albumu: \albumB\\
+\studentC & Nr albumu: \albumC
+\end{tabular}
+\vspace{12mm}
+
+{\small PROWADZĄCY ZAJĘCIA PROJEKTOWE\par}
+\vspace{3mm}
+\prowadzacyA\par
+\prowadzacyB\par
+\vfill
+Rok akademicki: \rokakademicki\quad Semestr: \semestrprojektu\par
+Data dokumentu: \datadokumentu\quad Wersja: \wersjadokumentu\par
+\vspace{6mm}
+Kraków\par
+
+\end{titlepage}
+
+\tableofcontents
+\vspace{5mm}
+\podpowiedz{Dokument przygotuj na drugie spotkanie projektowe. Podpowiedzi i przykłady służą do opracowania własnej treści; nie pozostawiaj ich w wersji oddawanej. Zakres uzgodnij z obojgiem prowadzących. Po uzupełnieniu wyłącz podpowiedzi przełącznikiem w preambule i sprawdź wynikowy PDF.}
+
+\section{Informacje o projekcie i zespole}
+\subsection{Wybrany temat}
+\podpowiedz{Podaj uzgodniony tytuł projektu, zgodny ze stroną tytułową. Powinien wskazywać przedmiot i cel pracy.}
+\tytulprojektu
+
+\subsection{Zespół projektowy}
+\podpowiedz{Podaj dane wszystkich członków zespołu. Zespół jest co do zasady trzyosobowy; w wyjątkowych, uzasadnionych przypadkach, za zgodą dyrekcji instytutu, może być dwuosobowy. W takim przypadku usuń dane trzeciej osoby ze strony tytułowej i tabeli.}
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\toprule
+Osoba / nr albumu & Kierunek / forma studiów & E-mail\\
+\midrule
+\studentA / \albumA & \pole{kierunek / forma} & \pole{adres e-mail}\\
+\studentB / \albumB & \pole{kierunek / forma} & \pole{adres e-mail}\\
+\studentC / \albumC & \pole{kierunek / forma} & \pole{adres e-mail}\\
+\bottomrule
+\end{tabularx}
+\newpage
+\subsection{Opis tematu i cel projektu}
+\podpowiedz{Opisz problem, odbiorców i zamierzony rezultat. Jeśli korzystasz z opisu prowadzących, dostosuj go do uzgodnionego zakresu. Wyjaśnij, na czym polega praktyczny i inżynierski charakter pracy oraz po czym będzie można poznać, że cel został osiągnięty.}
+\pole{Opis problemu, cel i przewidywany rezultat projektu.}
+
+
+\subsection{Założenia projektowe}
+\podpowiedz{Określ zakres możliwy do wykonania przez zespół w jednym semestrze, z uwzględnieniem jego liczebności. Oddziel wymagania podstawowe od rozszerzeń, które zostaną wykonane, jeśli pozwoli na to czas. Poniższe punkty dostosuj do charakteru projektu.}
+\begin{itemize}
+\item \textbf{Zakres i wymagania:} \pole{funkcje, scenariusze użycia lub właściwości rezultatu; elementy poza zakresem.}
+\item \textbf{Technologie i narzędzia:} \pole{języki, biblioteki, środowiska, sprzęt lub narzędzia graficzne; krótkie uzasadnienie wyboru.}
+\item \textbf{Dane i zasoby:} \pole{źródła danych i materiałów, sposób ich pozyskania oraz warunki wykorzystania.}
+\item \textbf{Weryfikacja:} \pole{planowane testy lub inne sprawdzenia; kryteria akceptacji najważniejszych rezultatów.}
+\item \textbf{Ryzyka i ograniczenia:} \pole{najważniejsze zależności, możliwe trudności i sposób ograniczenia ich wpływu.}
+\end{itemize}
+
+\podpowiedz{Jeżeli przewidujecie wykorzystanie AI, określcie, czy ma wspomagać prace, stanowić część rozwiązania, czy pełnić obie role. Jeśli AI jest elementem wymagań projektu, wskażcie sposób oceny jej działania. Gdy nie planujecie AI, wpiszcie tę informację.}
+\textbf{Planowane wykorzystanie AI:} \pole{narzędzia lub mechanizmy, zakres zastosowania i sposób weryfikacji rezultatów.}
+
+\subsection{Wstępny harmonogram i podział zadań}
+\podpowiedz{Podziel prace na etapy z konkretnymi terminami i sprawdzalnymi rezultatami. Wskaż osoby odpowiedzialne; przy zadaniach wspólnych określ indywidualne obowiązki. Uwzględnij czas na integrację, testy, dokumentację, nagranie i poprawki. W razie potrzeby dodaj wiersze.}
+\begin{tabularx}{\textwidth}{@{}p{0.14\textwidth} Y p{0.21\textwidth} Y@{}}
+\toprule
+Termin & Zadania / etap & Odpowiedzialni & Rezultat\\
+\midrule
+\pole{od-do} & \pole{zadania} & \pole{osoby} & \pole{efekt do sprawdzenia}\\
+\pole{od-do} & \pole{zadania} & \pole{osoby} & \pole{efekt do sprawdzenia}\\
+\pole{od-do} & \pole{zadania} & \pole{osoby} & \pole{efekt do sprawdzenia}\\
+\pole{od-do} & \pole{zadania} & \pole{osoby} & \pole{efekt do sprawdzenia}\\
+\bottomrule
+\end{tabularx}
+\podpowiedz{Od trzeciego spotkania przygotowujcie wspólny raport za okres między poprzednim a bieżącym spotkaniem, z podziałem wykonanych prac na członków zespołu.}
+
+\newpage
+\subsection{Przechowywanie materiałów i organizacja współpracy}
+
+\podpowiedz{W projekcie programistycznym podaj adres repozytorium kodu. W projekcie o innym charakterze, np. animacji 3D, wskaż uzgodnione z prowadzącymi miejsce przechowywania plików źródłowych, zasobów i rezultatów. Opisz sposób oznaczania kolejnych wersji i zapewnij dostęp obojgu prowadzącym.}
+
+\textbf{Repozytorium lub miejsce przechowywania materiałów:}
+\pole{adres i sposób przechowywania plików.}\par
+
+\textbf{Wersjonowanie:}
+\pole{system kontroli wersji lub sposób oznaczania i zachowywania kolejnych wersji plików.}\par
+
+\textbf{Dostęp prowadzących:}
+\pole{sposób udostępnienia / status nadania dostępu.}\par
+
+\textbf{Organizacja współpracy:}
+\pole{kanał komunikacji i sposób zarządzania zadaniami.}
+
+\subsection{Uzgodnione materiały końcowe}
+\podpowiedz{Uzupełnij tabelę z prowadzącymi. Sprawozdanie końcowe, kompletny projekt z plikami źródłowymi oraz nagranie są wymagane. Pozostałą dokumentację dostosujcie do projektu. Wpiszcie zakres i formę; przy dokumencie niewymaganym podajcie krótkie uzasadnienie.}
+\begin{tabularx}{\textwidth}{@{}p{0.35\textwidth} Y@{}}
+\toprule
+Materiał & Uzgodniony zakres / forma\\
+\midrule
+Sprawozdanie końcowe & \pole{zakres; PDF według szablonu.}\\
+Dokumentacja projektowa & \pole{zakres lub uzasadnienie niewymagania.}\\
+Dokumentacja użytkowa & \pole{zakres lub uzasadnienie niewymagania.}\\
+Dokumentacja instalacyjna & \pole{zakres lub uzasadnienie niewymagania.}\\
+Kompletny projekt & \pole{kod lub inne pliki źródłowe, pliki wynikowe, dane i zasoby.}\\
+Nagranie wideo & \pole{najważniejsze funkcje lub rezultaty, które zostaną pokazane.}\\
+\bottomrule
+\end{tabularx}
+\podpowiedz{Dokumenty przygotowuje się w LaTeX-u według udostępnionych szablonów i oddaje w PDF. Istotne późniejsze zmiany ustaleń wymagają uzgodnienia z prowadzącymi i odnotowania.}
+
+\subsection{Źródła i materiały referencyjne}
+\podpowiedz{Wskaż źródła wykorzystane przy opracowaniu koncepcji: dokumentację techniczną, publikacje, zbiory danych, zasoby i rozwiązania referencyjne. Dla stron internetowych podaj tytuł, adres i datę dostępu. Jeśli nie korzystano ze źródeł zewnętrznych, wpisz tę informację.}
+% Przykład odnośnika: \href{https://adres.example}{Tytuł dokumentacji}
+\pole{Wykaz źródeł wykorzystanych przy opracowaniu koncepcji projektu.}
+\end{document}

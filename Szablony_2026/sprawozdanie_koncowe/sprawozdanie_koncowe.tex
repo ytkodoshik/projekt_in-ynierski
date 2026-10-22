@@ -1,0 +1,197 @@
+% Autor szablonu: dr Roman Czapla
+% Kompilacja: pdfLaTeX (dwukrotnie, aby zaktualizować spis treści).
+% Wymagane logo uczelni: images/logo.png (ścieżka względem pliku głównego).
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor,graphicx,tabularx,booktabs,array,enumitem,fancyhdr,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{344B59}
+\definecolor{hintcolor}{HTML}{58636A}
+\hypersetup{pdfauthor={},pdftitle={Projekt inżynierski - Sprawozdanie końcowe}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Projekt inżynierski}
+\fancyhead[R]{\small Sprawozdanie końcowe}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Podpowiedzi są widoczne podczas wypełniania szablonu.
+% Przed oddaniem: uzupełnij pola, zastąp przykłady własną treścią
+% i zmień poniższy przełącznik na \podpowiedzifalse.
+\newif\ifpodpowiedzi
+\podpowiedzitrue
+%\podpowiedzifalse
+\newcommand{\podpowiedz}[1]{\ifpodpowiedzi\par\begingroup\small\color{hintcolor}\textit{Wskazówka: #1}\par\endgroup\fi}
+\newcommand{\pole}[1]{\textnormal{[#1]}}
+
+% Dane dokumentu - uzupełnij w jednym miejscu.
+% Ścieżkę logo można zmienić poniżej.
+\newcommand{\pliklogo}{images/logo.png}
+\newcommand{\logouczelni}{%
+  \includegraphics[width=0.8\textwidth,height=40mm,keepaspectratio]{\pliklogo}%
+}
+\newcommand{\tytulprojektu}{\pole{Tytuł projektu}}
+\newcommand{\rokakademicki}{\pole{2026/2027}}
+\newcommand{\semestrprojektu}{\pole{zimowy / letni}}
+\newcommand{\datadokumentu}{\pole{dd.mm.rrrr}}
+\newcommand{\wersjadokumentu}{\pole{1.0}}
+% Zespół dwuosobowy tylko za zgodą dyrekcji: zmień na \trzeciaosobafalse.
+\newif\iftrzeciaosoba
+\trzeciaosobatrue
+\newcommand{\studentA}{\pole{Imię i nazwisko osoby 1}}
+\newcommand{\studentB}{\pole{Imię i nazwisko osoby 2}}
+\newcommand{\studentC}{\pole{Imię i nazwisko osoby 3}}
+\newcommand{\albumA}{\pole{numer albumu}}
+\newcommand{\albumB}{\pole{numer albumu}}
+\newcommand{\albumC}{\pole{numer albumu}}
+\newcommand{\prowadzacyA}{\pole{Stopień lub tytuł, imię i nazwisko}}
+\newcommand{\prowadzacyB}{\pole{Stopień lub tytuł, imię i nazwisko}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Uniwersytet Komisji Edukacji Narodowej w Krakowie\par}
+{\normalsize Instytut Bezpieczeństwa i Informatyki\par}
+\vspace{8mm}
+\logouczelni\par
+\vspace{10mm}
+{\Large\bfseries\color{accent} PROJEKT INŻYNIERSKI\par}
+\vspace{3mm}
+{\large Sprawozdanie końcowe\par}
+\vspace{15mm}
+{\LARGE\bfseries\tytulprojektu\par}
+\vspace{15mm}
+{\small ZESPÓŁ PROJEKTOWY\par}
+\vspace{3mm}
+\begin{tabular}{ll}
+\studentA & Nr albumu: \albumA\\
+\studentB & Nr albumu: \albumB
+\iftrzeciaosoba\\
+\studentC & Nr albumu: \albumC\fi
+\end{tabular}
+\vspace{12mm}
+
+{\small PROWADZĄCY ZAJĘCIA PROJEKTOWE\par}
+\vspace{3mm}
+\prowadzacyA\par
+\prowadzacyB\par
+\vfill
+Rok akademicki: \rokakademicki\quad Semestr: \semestrprojektu\par
+Data dokumentu: \datadokumentu\quad Wersja: \wersjadokumentu\par
+\vspace{6mm}
+Kraków\par
+
+\end{titlepage}
+
+\newcommand{\podpisy}{%
+\par\vspace{5mm}
+\begin{tabularx}{\textwidth}{@{}Y p{0.28\textwidth} p{0.28\textwidth}@{}}
+\toprule
+Imię i nazwisko & Data & Podpis\\
+\midrule
+\studentA & \dotfill & \dotfill\\[4mm]
+\studentB & \dotfill & \dotfill
+\iftrzeciaosoba\\[4mm]
+\studentC & \dotfill & \dotfill\fi\\[4mm]
+\bottomrule
+\end{tabularx}}
+
+\tableofcontents
+\podpowiedz{Sprawozdanie podsumowuje cały projekt. Opisz uzyskane rezultaty, zgodność z uzgodnionym zakresem i indywidualny wkład. Szczegóły techniczne możesz wskazać przez odwołania do osobnej dokumentacji. Uzupełnij wszystkie pola, usuń przykłady i wyłącz podpowiedzi przed oddaniem. Dla zespołu dwuosobowego zatwierdzonego przez dyrekcję użyj przełącznika w preambule i usuń opis prac trzeciej osoby.}
+
+\section{Opis projektu}
+\podpowiedz{Przedstaw problem, cel, odbiorców oraz finalny rezultat. Wyjaśnij praktyczny i inżynierski charakter projektu. Porównaj rezultat z dokumentem ,,Wybór projektu'', uwzględniając późniejsze uzgodnienia.}
+\textbf{Problem i cel:} \pole{krótki opis.}\par
+\textbf{Rezultat:} \pole{co powstało i do czego służy.}\par
+\textbf{Realizacja założeń:} \pole{spełnione wymagania, uzgodnione zmiany i elementy niezrealizowane.}
+
+
+\section{Opis zrealizowanych prac}
+\podpowiedz{Podsumuj etapy realizacji: koncepcję, dobór metod i narzędzi, wykonanie, integrację oraz weryfikację. Dostosuj opis do charakteru projektu; może dotyczyć aplikacji, animacji, prototypu lub innego rezultatu. Nie kopiuj kolejnych raportów bez opracowania podsumowania.}
+\pole{Przebieg prac i najważniejsze decyzje wraz z uzasadnieniem.}
+
+\subsection{Weryfikacja i ograniczenia}
+\podpowiedz{Opisz, jak sprawdzono realizację celów i jakość rezultatu. Wskaż testy lub inne sprawdzenia, ich wyniki oraz odwołania do dokumentacji. Podaj znane ograniczenia, problemy i możliwe kierunki rozwoju.}
+\pole{Sposób weryfikacji, wyniki i ograniczenia.}
+
+\subsection{Indywidualny wkład członków zespołu}
+\podpowiedz{Dla każdej osoby opisz konkretne zadania i rezultaty. Przy pracy wspólnej rozróżnij indywidualne obowiązki. Uwzględnij również koncepcję, integrację, testy, dokumentację i organizację pracy. Opis powinien być zgodny z raportami i oświadczeniem o wkładzie.}
+\textbf{\studentA:} \pole{zadania i rezultaty.}\par
+\textbf{\studentB:} \pole{zadania i rezultaty.}\par
+\iftrzeciaosoba
+\textbf{\studentC:} \pole{zadania i rezultaty.}\par
+\fi
+
+\subsection{Wykorzystanie AI i materiałów zewnętrznych}
+\podpowiedz{Wskaż narzędzia AI i zakres ich zastosowania w całym projekcie. Rozróżnij wspomaganie prac od mechanizmów AI stanowiących część rozwiązania. Opisz weryfikację uzyskanych wyników; dla funkcji AI w projekcie podaj także sposób oceny działania i ograniczenia. Nie wymaga się pełnej historii rozmów ani wszystkich promptów. Jeśli nie korzystano z AI, wpisz tę informację.}
+\textbf{AI:} \pole{narzędzia, zastosowania i weryfikacja.}\par
+\podpowiedz{Wskaż wykorzystane biblioteki, modele, dane, zasoby i cudze fragmenty kodu, ich pochodzenie i warunki wykorzystania. Odróżnij je od własnego wkładu. Szczegółowe źródła wymień w wykazie na końcu dokumentu.}
+\textbf{Materiały zewnętrzne:} \pole{wykorzystane materiały i zakres ich zastosowania.}
+
+
+\section{Wykaz załączników}
+\podpowiedz{Wymień wszystkie oddawane pliki i pakiety wraz z krótkim opisem. Zakres dokumentacji powinien być zgodny z ustaleniami prowadzących. Wskaż kompletny projekt z kodem lub innymi plikami źródłowymi, zasobami i plikami wynikowymi oraz obowiązkowe nagranie. Dokumenty oddaje się w PDF. W razie niewymagania danego rodzaju dokumentacji odnotuj uzgodnienie i uzasadnienie pod tabelą. Dodaj wiersze według potrzeb.}
+\begin{tabularx}{\textwidth}{@{}p{0.12\textwidth} Y Y@{}}
+\toprule
+Oznaczenie & Plik / pakiet & Zawartość i przeznaczenie\\
+\midrule
+Z1 & \pole{nazwa} & \pole{kompletny projekt: kod lub pliki źródłowe, dane i zasoby.}\\
+Z2 & \pole{nazwa} & \pole{dokumentacja projektowa - jeśli wymagana.}\\
+Z3 & \pole{nazwa} & \pole{dokumentacja użytkowa - jeśli wymagana.}\\
+Z4 & \pole{nazwa} & \pole{dokumentacja instalacyjna - jeśli wymagana.}\\
+Z5 & \pole{nazwa nagrania} & \pole{prezentacja działania lub rezultatu oddanej wersji.}\\
+\bottomrule
+\end{tabularx}
+\textbf{Uzgodnienia dotyczące dokumentacji:} \pole{zakres i ewentualne odstąpienie od dokumentów nieadekwatnych do projektu.}
+
+\podpowiedz{Dla projektu programistycznego podaj repozytorium i commit lub tag. Dla innych projektów podaj miejsce przechowywania i oznaczenie wersji plików. Odnośnik nie zastępuje przekazania kompletu plików do archiwizacji.}
+\textbf{Repozytorium lub miejsce przechowywania:} \pole{adres.}\par
+\textbf{Ostateczna wersja:} \pole{identyfikator wersji i data.}
+
+%\newpage
+\section{Oświadczenia}
+\subsection{Oświadczenie o wykonaniu projektu i wykorzystanych materiałach}
+\podpowiedz{Przed podpisaniem upewnijcie się, że treść jest zgodna z rzeczywistym przebiegiem prac i że ujawniono wykorzystanie AI oraz materiałów zewnętrznych. Oświadczenie podpisują wszyscy członkowie zespołu.}
+
+Oświadczamy, że projekt opisany w niniejszym sprawozdaniu został zrealizowany przez nas pod opieką prowadzących zajęcia projektowe w Instytucie Bezpieczeństwa i Informatyki Uniwersytetu Komisji Edukacji Narodowej w Krakowie.
+
+Przedstawiony opis prac i indywidualnego wkładu odpowiada rzeczywistemu przebiegowi realizacji projektu. Wykorzystanie narzędzi AI oraz materiałów zewnętrznych zostało wskazane w sprawozdaniu i odpowiednich miejscach dokumentacji. Materiałów zewnętrznych nie przedstawiamy jako własnego wkładu.
+
+Potwierdzamy, że zweryfikowaliśmy przekazane rezultaty i rozumiemy rozwiązania należące do zakresu naszych prac. Korzystanie z narzędzi wspomagających nie zwalnia nas z odpowiedzialności za poprawność i jakość oddanego projektu.
+\podpisy
+
+%\newpage
+\subsection{Oświadczenie o indywidualnym wkładzie}
+Oświadczamy, że opis indywidualnego wkładu zawarty w niniejszym sprawozdaniu jest zgodny ze stanem faktycznym i został uzgodniony przez wszystkich członków zespołu.
+\podpowiedz{Wskaż konkretne obowiązki poszczególnych osób, a nie wyłącznie procenty. Obszary dostosuj do projektu; przy zadaniach wspólnych określ wkład każdej osoby. Tabela uzupełnia opis prac i nie powinna mu przeczyć.}
+\begin{tabularx}{\textwidth}{@{}p{0.26\textwidth} Y Y@{}}
+\toprule
+Obszar prac & Osoba / osoby & Indywidualny wkład\\
+\midrule
+Koncepcja i założenia & \pole{osoby} & \pole{obowiązki i rezultaty.}\\
+Metody i narzędzia & \pole{osoby} & \pole{obowiązki i rezultaty.}\\
+Wykonanie i integracja & \pole{osoby} & \pole{obowiązki i rezultaty.}\\
+Weryfikacja / testy & \pole{osoby} & \pole{obowiązki i rezultaty.}\\
+Dokumentacja i nagranie & \pole{osoby} & \pole{obowiązki i rezultaty.}\\
+Pozostałe prace & \pole{osoby} & \pole{rodzaj prac i wkład.}\\
+\bottomrule
+\end{tabularx}
+\podpisy
+
+\section*{Źródła i materiały referencyjne}
+\addcontentsline{toc}{section}{Źródła i materiały referencyjne}
+\podpowiedz{Wymień źródła przywołane w sprawozdaniu: publikacje, dokumentację, zbiory danych i inne zasoby. Dla materiałów internetowych podaj tytuł, adres i datę dostępu. Pełny wykaz techniczny może znajdować się w dokumentacji projektowej - wskaż wtedy odpowiednią sekcję. Jeśli nie wykorzystano źródeł zewnętrznych, wpisz tę informację.}
+\pole{Wykaz źródeł i materiałów referencyjnych.}
+\end{document}

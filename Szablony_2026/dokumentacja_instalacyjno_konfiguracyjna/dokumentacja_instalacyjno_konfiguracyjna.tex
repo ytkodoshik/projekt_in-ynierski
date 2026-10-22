@@ -1,0 +1,184 @@
+% Autor szablonu: dr Roman Czapla
+% Kompilacja: pdfLaTeX (dwukrotnie, aby zaktualizować spis treści).
+% Wymagane logo uczelni: images/logo.png (ścieżka względem pliku głównego).
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor,graphicx,tabularx,booktabs,array,enumitem,fancyhdr,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{344B59}
+\definecolor{hintcolor}{HTML}{58636A}
+\hypersetup{pdfauthor={},pdftitle={Projekt inżynierski - Dokumentacja instalacji i konfiguracji}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Projekt inżynierski}
+\fancyhead[R]{\small Instalacja i konfiguracja}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Podpowiedzi są widoczne podczas wypełniania szablonu.
+% Przed oddaniem: uzupełnij pola, zastąp przykłady własną treścią
+% i zmień poniższy przełącznik na \podpowiedzifalse.
+\newif\ifpodpowiedzi
+\podpowiedzitrue
+%\podpowiedzifalse
+\newcommand{\podpowiedz}[1]{\ifpodpowiedzi\par\begingroup\small\color{hintcolor}\textit{Wskazówka: #1}\par\endgroup\fi}
+\newcommand{\pole}[1]{\textnormal{[#1]}}
+
+% Dane dokumentu - uzupełnij w jednym miejscu.
+% Ścieżkę logo można zmienić poniżej.
+\newcommand{\pliklogo}{images/logo.png}
+\newcommand{\logouczelni}{%
+  \includegraphics[width=0.8\textwidth,height=40mm,keepaspectratio]{\pliklogo}%
+}
+\newcommand{\tytulprojektu}{\pole{Tytuł projektu}}
+\newcommand{\rokakademicki}{\pole{2026/2027}}
+\newcommand{\semestrprojektu}{\pole{zimowy / letni}}
+\newcommand{\datadokumentu}{\pole{dd.mm.rrrr}}
+\newcommand{\wersjadokumentu}{\pole{1.0}}
+% Zespół dwuosobowy tylko za zgodą dyrekcji: zmień na \trzeciaosobafalse.
+\newif\iftrzeciaosoba
+\trzeciaosobatrue
+\newcommand{\studentA}{\pole{Imię i nazwisko osoby 1}}
+\newcommand{\studentB}{\pole{Imię i nazwisko osoby 2}}
+\newcommand{\studentC}{\pole{Imię i nazwisko osoby 3}}
+\newcommand{\albumA}{\pole{numer albumu}}
+\newcommand{\albumB}{\pole{numer albumu}}
+\newcommand{\albumC}{\pole{numer albumu}}
+\newcommand{\prowadzacyA}{\pole{Stopień lub tytuł, imię i nazwisko}}
+\newcommand{\prowadzacyB}{\pole{Stopień lub tytuł, imię i nazwisko}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Uniwersytet Komisji Edukacji Narodowej w Krakowie\par}
+{\normalsize Instytut Bezpieczeństwa i Informatyki\par}
+\vspace{8mm}
+\logouczelni\par
+\vspace{10mm}
+{\Large\bfseries\color{accent} PROJEKT INŻYNIERSKI\par}
+\vspace{3mm}
+{\large Dokumentacja instalacji i konfiguracji\par}
+\vspace{15mm}
+{\LARGE\bfseries\tytulprojektu\par}
+\vspace{15mm}
+{\small ZESPÓŁ PROJEKTOWY\par}
+\vspace{3mm}
+\begin{tabular}{ll}
+\studentA & Nr albumu: \albumA\\
+\studentB & Nr albumu: \albumB
+\iftrzeciaosoba\\
+\studentC & Nr albumu: \albumC\fi
+\end{tabular}
+\vspace{12mm}
+
+{\small PROWADZĄCY ZAJĘCIA PROJEKTOWE\par}
+\vspace{3mm}
+\prowadzacyA\par
+\prowadzacyB\par
+\vfill
+Rok akademicki: \rokakademicki\quad Semestr: \semestrprojektu\par
+Data dokumentu: \datadokumentu\quad Wersja: \wersjadokumentu\par
+\vspace{6mm}
+Kraków\par
+
+\end{titlepage}
+
+\tableofcontents
+\podpowiedz{Dokument jest przeznaczony dla osoby przygotowującej środowisko, wdrażającej projekt lub administrującej nim. Jego wymagalność i zakres zależą od charakteru projektu i są uzgadniane z prowadzącymi. Dla animacji lub wizualizacji osobna dokumentacja instalacyjna może nie być potrzebna. Jeśli jest wymagana, opisz rzeczywisty sposób przygotowania środowiska; usuń podsekcje nieadekwatne. Uzupełnij pola, usuń przykłady i wyłącz podpowiedzi przed oddaniem.}
+
+\section{Szczegółowa dokumentacja instalacji i konfiguracji}
+\subsection{Zakres i wersja projektu}
+\podpowiedz{Podaj wersję projektu, której dotyczy instrukcja, oraz opisany wariant wdrożenia, np. lokalny, serwerowy, kontenerowy lub na urządzeniu. Wskaż, czy instrukcja obejmuje uruchomienie gotowego rezultatu, odtworzenie go z plików źródłowych, czy oba warianty. Opisz wymaganą wiedzę i uprawnienia osoby wykonującej czynności.}
+\textbf{Wersja projektu:} \pole{oznaczenie i data.}\par
+\textbf{Wariant i zakres:} \pole{opis środowiska i czynności.}\par
+\textbf{Wymagane uprawnienia:} \pole{zakres dostępu.}
+
+\newpage
+\subsection{Wymagania sprzętowe}
+\podpowiedz{Podaj minimalne zasoby potrzebne do działania projektu: procesor, pamięć RAM, miejsce na dysku, GPU, urządzenia i połączenia sieciowe, o ile mają znaczenie. Rozróżnij wymagania do uruchomienia oraz budowania, renderowania lub innych prac, jeśli są różne. Wskazuj wymagania sprawdzone albo wyraźnie oznacz szacunki.}
+\begin{tabularx}{\textwidth}{@{}l Y Y@{}}
+\toprule
+Zasób & Wymaganie & Uwagi\\
+\midrule
+\pole{zasób} & \pole{minimum} & \pole{zastosowanie lub zalecenie}\\
+\pole{zasób} & \pole{minimum} & \pole{zastosowanie lub zalecenie}\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Środowisko uruchomieniowe i zależności}
+\podpowiedz{Wymień system operacyjny, środowiska uruchomieniowe, narzędzia, biblioteki i usługi wraz ze sprawdzonymi wersjami. Uwzględnij bazę danych, kontenery, oprogramowanie specjalistyczne i wtyczki, jeśli występują. Podaj pliki określające zależności oraz sposób ich instalacji. Wskaż wymagany dostęp do sieci lub usług zewnętrznych.}
+\begin{tabularx}{\textwidth}{@{}Y l Y@{}}
+\toprule
+Komponent & Wersja & Rola / sposób uzyskania\\
+\midrule
+\pole{nazwa} & \pole{wersja} & \pole{opis}\\
+\pole{nazwa} & \pole{wersja} & \pole{opis}\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Przygotowanie plików projektu}
+\podpowiedz{Wskaż przekazany pakiet i jego strukturę: kod źródłowy, pliki projektu, zasoby, dane, instalatory lub obrazy kontenerów. Dla projektu programistycznego podaj adres repozytorium oraz identyfikator commitu lub tagu odpowiadającego przekazanemu pakietowi. Dla projektu o innym charakterze wskaż uzgodnione miejsce przechowywania materiałów i oznaczenie wersji plików. Instrukcja powinna umożliwiać pracę z zarchiwizowanym kompletem materiałów; sam odnośnik do repozytorium lub zewnętrznej usługi nie zastępuje przekazania wymaganych plików. Opisz rozpakowanie, rozmieszczenie plików i wymagane przygotowanie danych.}
+\pole{Pliki, katalogi i czynności przygotowawcze.}
+
+\subsection{Instalacja krok po kroku}
+\podpowiedz{Podaj czynności w kolejności wykonania, z rzeczywistymi poleceniami lub opisem działań w interfejsie. Przy poleceniach wskaż katalog roboczy i wymagane uprawnienia. Opisz budowanie projektu, przygotowanie bazy danych i innych komponentów, jeśli dotyczy. Po istotnych krokach podaj oczekiwany efekt. Poniższe punkty zastąp instrukcją dla własnego projektu.}
+\begin{enumerate}
+\item \pole{instalacja wymaganych komponentów i sprawdzenie ich wersji.}
+\item \pole{przygotowanie projektu lub budowanie z plików źródłowych.}
+\item \pole{instalacja rozwiązania i wymaganych danych.}
+\end{enumerate}
+% Krótkie polecenia: \texttt{polecenie}.
+% Wielowierszowe polecenia można umieścić w środowisku verbatim.
+% Nie zamieszczaj prawdziwych haseł ani kluczy dostępu.
+
+
+\subsection{Konfiguracja}
+\podpowiedz{Wskaż pliki konfiguracyjne, zmienne środowiskowe i ustawienia usług. Wyjaśnij znaczenie parametrów, wymagane wartości i miejsca ich zmiany. Uwzględnij porty, ścieżki, połączenia, konta i uprawnienia, jeśli występują. Używaj przykładowych wartości; nie wpisuj rzeczywistych haseł, tokenów ani kluczy. Wyjaśnij, jak osoba wdrażająca projekt ma dostarczyć własne dane dostępowe.}
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\toprule
+Parametr / lokalizacja & Znaczenie & Wartość / sposób ustawienia\\
+\midrule
+\pole{parametr} & \pole{opis} & \pole{przykład}\\
+\pole{parametr} & \pole{opis} & \pole{przykład}\\
+\bottomrule
+\end{tabularx}
+\podpowiedz{Jeśli AI jest częścią rozwiązania, opisz wymagane modele, usługę lub środowisko lokalne, sposób konfiguracji dostępu, sprawdzoną wersję modelu, o ile można ją ustalić, oraz zależności i limity istotne dla uruchomienia. Samo użycie AI podczas tworzenia projektu nie wymaga takiego opisu tutaj.}
+
+\subsection{Uruchomienie i weryfikacja działania}
+\podpowiedz{Opisz pierwsze uruchomienie, zatrzymanie i ponowne uruchomienie rozwiązania. Podaj sposób sprawdzenia gotowości komponentów, lokalizację logów i krótki scenariusz potwierdzający poprawność instalacji. Wskaż dane potrzebne do próby oraz konkretny oczekiwany rezultat. Dla złożonego projektu sprawdź także połączenia między komponentami.}
+\textbf{Uruchomienie i zatrzymanie:} \pole{czynności lub polecenia.}\par
+\textbf{Próba działania:} \pole{czynności i dane testowe.}\par
+\textbf{Oczekiwany rezultat:} \pole{efekt potwierdzający poprawną instalację.}
+
+\subsection{Typowe problemy}
+\podpowiedz{Opisz rzeczywiście napotkane lub przewidywalne problemy instalacyjne i konfiguracyjne. Podaj objaw, sposób ustalenia przyczyny oraz działanie naprawcze. Wskaż logi lub polecenia diagnostyczne, jeśli pomagają. Dodaj wiersze według potrzeb.}
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\toprule
+Objaw & Przyczyna / diagnostyka & Rozwiązanie\\
+\midrule
+\pole{objaw} & \pole{opis} & \pole{czynności}\\
+\pole{objaw} & \pole{opis} & \pole{czynności}\\
+\bottomrule
+\end{tabularx}
+
+
+\subsection{Utrzymanie i usunięcie instalacji}
+\podpowiedz{Jeśli dotyczy: opisz kopie zapasowe i odtwarzanie danych, aktualizację projektu, powrót do poprzedniej wersji i usunięcie instalacji. Wskaż, które pliki lub dane należy zachować oraz które czynności mogą spowodować ich utratę. Dostosuj zakres do projektu; nie twórz procedur dla funkcji, których rozwiązanie nie ma.}
+\pole{Procedury utrzymania i usunięcia instalacji.}
+
+\subsection{Źródła i materiały pomocnicze}
+\podpowiedz{Wskaż wykorzystane instrukcje producentów, dokumentację narzędzi oraz przekazane pliki pomocnicze, np. przykładową konfigurację i skrypty instalacyjne. Podaj nazwy i lokalizacje plików; dla źródeł internetowych - tytuł, adres i datę dostępu. Usuń podsekcję, jeśli nie ma takich materiałów.}
+\pole{Wykaz źródeł i materiałów.}
+\end{document}

@@ -1,0 +1,190 @@
+% Autor szablonu: dr Roman Czapla
+% Kompilacja: pdfLaTeX (dwukrotnie, aby zaktualizować spis treści).
+% Wymagane logo uczelni: images/logo.png (ścieżka względem pliku głównego).
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor,graphicx,tabularx,booktabs,array,enumitem,fancyhdr,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{344B59}
+\definecolor{hintcolor}{HTML}{58636A}
+\hypersetup{pdfauthor={},pdftitle={Projekt inżynierski - Raport z realizacji projektu}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Projekt inżynierski}
+\fancyhead[R]{\small Raport z realizacji projektu}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Podpowiedzi są widoczne podczas wypełniania szablonu.
+% Przed oddaniem: uzupełnij pola, zastąp przykłady własną treścią
+% i zmień poniższy przełącznik na \podpowiedzifalse.
+\newif\ifpodpowiedzi
+\podpowiedzitrue
+%\podpowiedzifalse
+\newcommand{\podpowiedz}[1]{\ifpodpowiedzi\par\begingroup\small\color{hintcolor}\textit{Wskazówka: #1}\par\endgroup\fi}
+\newcommand{\pole}[1]{\textnormal{[#1]}}
+
+% Dane dokumentu - uzupełnij w jednym miejscu.
+% Ścieżkę logo można zmienić poniżej.
+\newcommand{\pliklogo}{images/logo.png}
+\newcommand{\logouczelni}{%
+  \includegraphics[width=0.8\textwidth,height=40mm,keepaspectratio]{\pliklogo}%
+}
+\newcommand{\tytulprojektu}{\pole{Tytuł projektu}}
+\newcommand{\rokakademicki}{\pole{2026/2027}}
+\newcommand{\semestrprojektu}{\pole{zimowy / letni}}
+\newcommand{\numerRaportu}{\pole{1}}
+\newcommand{\okresOd}{\pole{dd.mm.rrrr}}
+\newcommand{\okresDo}{\pole{dd.mm.rrrr}}
+\newcommand{\datadokumentu}{\pole{dd.mm.rrrr}}
+\newcommand{\wersjadokumentu}{\pole{1.0}}
+\newcommand{\studentA}{\pole{Imię i nazwisko osoby 1}}
+\newcommand{\studentB}{\pole{Imię i nazwisko osoby 2}}
+\newcommand{\studentC}{\pole{Imię i nazwisko osoby 3}}
+\newcommand{\albumA}{\pole{numer albumu}}
+\newcommand{\albumB}{\pole{numer albumu}}
+\newcommand{\albumC}{\pole{numer albumu}}
+\newcommand{\prowadzacyA}{\pole{Stopień lub tytuł, imię i nazwisko}}
+\newcommand{\prowadzacyB}{\pole{Stopień lub tytuł, imię i nazwisko}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Uniwersytet Komisji Edukacji Narodowej w Krakowie\par}
+{\normalsize Instytut Bezpieczeństwa i Informatyki\par}
+\vspace{8mm}
+\logouczelni\par
+\vspace{10mm}
+{\Large\bfseries\color{accent} PROJEKT INŻYNIERSKI\par}
+\vspace{3mm}
+{\large Raport z realizacji projektu\par}
+\vspace{3mm}
+Raport nr \numerRaportu\par
+Okres: \okresOd{} - \okresDo\par
+\vspace{15mm}
+{\LARGE\bfseries\tytulprojektu\par}
+\vspace{15mm}
+{\small ZESPÓŁ PROJEKTOWY\par}
+\vspace{3mm}
+\begin{tabular}{ll}
+\studentA & Nr albumu: \albumA\\
+\studentB & Nr albumu: \albumB\\
+\studentC & Nr albumu: \albumC
+\end{tabular}
+\vspace{12mm}
+
+{\small PROWADZĄCY ZAJĘCIA PROJEKTOWE\par}
+\vspace{3mm}
+\prowadzacyA\par
+\prowadzacyB\par
+\vfill
+Rok akademicki: \rokakademicki\quad Semestr: \semestrprojektu\par
+Data dokumentu: \datadokumentu\quad Wersja: \wersjadokumentu\par
+\vspace{6mm}
+Kraków\par
+
+\end{titlepage}
+
+\tableofcontents
+\podpowiedz{Przygotuj jeden wspólny raport zespołu za okres między poprzednim a bieżącym spotkaniem. Pierwszy raport jest wymagany na trzecie spotkanie i obejmuje prace między drugim a trzecim spotkaniem. Opisuj wyłącznie prace z podanego okresu, rozróżniając zadania zakończone i będące w toku. Uzupełnij pola, usuń przykłady i wyłącz podpowiedzi przed oddaniem.}
+
+\section{Postępy prac nad projektem}
+\subsection{Zespół projektowy}
+\podpowiedz{Podaj aktualne dane kontaktowe wszystkich członków zespołu. Imiona i nazwiska powinny być zgodne ze stroną tytułową. W przypadku zespołu dwuosobowego zatwierdzonego przez dyrekcję instytutu usuń dane trzeciej osoby ze strony tytułowej, obu tabel oraz odpowiedni blok opisu prac.}
+\begin{tabularx}{\textwidth}{@{}Y p{0.22\textwidth} Y@{}}
+\toprule
+Imię i nazwisko & Numer albumu & E-mail\\
+\midrule
+\studentA & \albumA & \pole{adres e-mail}\\
+\studentB & \albumB & \pole{adres e-mail}\\
+\studentC & \albumC & \pole{adres e-mail}\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Zestawienie zadań}
+\podpowiedz{Dla każdej osoby wymień zadania z danego okresu i ich stan: zakończone, w toku lub zablokowane. Przy pracy wspólnej wskaż konkretny wkład każdej osoby. Odwołania do opisów generuj poleceniem \texttt{\textbackslash ref}; nie wpisuj ręcznie numerów sekcji. Powielaj wiersze i opisy według potrzeb.}
+\begin{tabularx}{\textwidth}{@{}p{0.26\textwidth} Y p{0.15\textwidth} p{0.12\textwidth}@{}}
+\toprule
+Osoba & Zadanie & Stan & Opis\\
+\midrule
+\studentA & \pole{nazwa zadania} & \pole{stan} & \ref{zadanie-a}\\
+\studentB & \pole{nazwa zadania} & \pole{stan} & \ref{zadanie-b}\\
+\studentC & \pole{nazwa zadania} & \pole{stan} & \ref{zadanie-c}\\
+\bottomrule
+\end{tabularx}
+
+\newpage
+\subsection{Opis wykonanych prac}
+\podpowiedz{Dla każdego zadania podaj cel, wykonane czynności, konkretny rezultat i sposób jego sprawdzenia. Wskaż materiały potwierdzające prace, np. pliki, commity, zgłoszenia, zrzuty ekranu lub załączniki. Przy zadaniu w toku opisz, co już wykonano i co pozostało. Jeśli dana osoba nie wykonała prac w tym okresie, wskaż to wprost i wyjaśnij przyczynę.}
+
+\subsubsection{\studentA: \pole{nazwa zadania}}\label{zadanie-a}
+\textbf{Cel i zakres:} \pole{cel zadania i indywidualny zakres prac.}\par
+\textbf{Wykonane prace:} \pole{czynności i zastosowane rozwiązania.}\par
+\textbf{Rezultat i weryfikacja:} \pole{uzyskany efekt, sposób sprawdzenia i wynik.}\par
+\textbf{Materiały potwierdzające:} \pole{odnośniki lub identyfikatory załączników.}
+
+\subsubsection{\studentB: \pole{nazwa zadania}}\label{zadanie-b}
+\textbf{Cel i zakres:} \pole{cel zadania i indywidualny zakres prac.}\par
+\textbf{Wykonane prace:} \pole{czynności i zastosowane rozwiązania.}\par
+\textbf{Rezultat i weryfikacja:} \pole{uzyskany efekt, sposób sprawdzenia i wynik.}\par
+\textbf{Materiały potwierdzające:} \pole{odnośniki lub identyfikatory załączników.}
+
+\subsubsection{\studentC: \pole{nazwa zadania}}\label{zadanie-c}
+\textbf{Cel i zakres:} \pole{cel zadania i indywidualny zakres prac.}\par
+\textbf{Wykonane prace:} \pole{czynności i zastosowane rozwiązania.}\par
+\textbf{Rezultat i weryfikacja:} \pole{uzyskany efekt, sposób sprawdzenia i wynik.}\par
+\textbf{Materiały potwierdzające:} \pole{odnośniki lub identyfikatory załączników.}
+
+\subsection{Problemy i zmiany w planie}
+\podpowiedz{Wskaż trudności, przyczyny opóźnień, wpływ na harmonogram oraz podjęte lub proponowane działania. Odnotuj istotne zmiany zakresu uzgodnione z prowadzącymi. Jeśli nie wystąpiły problemy ani zmiany, napisz to wprost.}
+\pole{Problemy, zmiany i sposób ich rozwiązania.}
+
+
+\subsection{Plan prac na kolejny okres}
+\podpowiedz{Wymień zadania do kolejnego spotkania, osoby odpowiedzialne oraz oczekiwane rezultaty. Uwzględnij zadania niezakończone i zależności między pracami.}
+\begin{tabularx}{\textwidth}{@{}Y p{0.25\textwidth} Y@{}}
+\toprule
+Zadanie & Odpowiedzialni & Oczekiwany rezultat\\
+\midrule
+\pole{zadanie} & \pole{osoby} & \pole{rezultat}\\
+\pole{zadanie} & \pole{osoby} & \pole{rezultat}\\
+\pole{zadanie} & \pole{osoby} & \pole{rezultat}\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Wykorzystanie AI i materiałów zewnętrznych}
+\podpowiedz{Jeżeli AI miała istotny wpływ na prace z tego okresu, wskaż narzędzie, zadania, zakres zastosowania oraz sposób weryfikacji wyników. Rozróżnij wsparcie prac od rozwijania funkcji AI będących częścią projektu. Nie dołączaj pełnej historii rozmów ani wszystkich promptów. Możesz odwołać się do opisów zadań zamiast powtarzać informacje. Gdy nie korzystano z AI, wpisz tę informację.}
+\textbf{AI:} \pole{narzędzie, zastosowanie i weryfikacja.}\par
+\podpowiedz{Wskaż nowe źródła, biblioteki, modele, dane, zasoby lub cudze fragmenty kodu wykorzystane w tym okresie oraz ich pochodzenie i warunki wykorzystania. W razie potrzeby dodaj wykaz źródeł z odnośnikami.}
+\textbf{Materiały zewnętrzne:} \pole{wykorzystane materiały i źródła lub informacja o ich braku.}
+
+\subsection{Załączniki i aktualna wersja projektu}
+
+\podpowiedz{Podaj adres repozytorium lub uzgodnionego z prowadzącymi miejsca przechowywania materiałów. W polu „Wersja na koniec okresu” wskaż stan projektu opisany w raporcie: identyfikator commitu, tag albo nazwę i datę wersji plików, np. animacja-v03-2026-10-25. Nie chodzi tu o wersję dokumentu raportu. W tabeli wymień materiały potwierdzające wykonane prace, np. wyniki testów, zrzuty ekranu, pliki projektu lub próbne rendery. W kolumnie „Oznaczenie” nadaj im kolejne symbole Z1, Z2 itd.; w kolumnie „Plik / odnośnik” podaj nazwę pliku lub adres umożliwiający dostęp; w kolumnie „Opis i powiązane zadanie” wyjaśnij, co materiał przedstawia i którego zadania dotyczy, np. „Wyniki testów logowania opisanych w pkt 1.3.1”. Do oznaczeń załączników odwołuj się w opisach wykonanych prac. Dodaj lub usuń wiersze według potrzeb. Sam odnośnik do materiałów nie zastępuje opisu prac w raporcie.}
+
+\textbf{Repozytorium lub miejsce przechowywania materiałów:}
+\pole{adres.}\par
+
+\textbf{Wersja na koniec okresu:}
+\pole{commit, tag albo nazwa i data wersji plików.}\par
+\begin{tabularx}{\textwidth}{@{}p{0.12\textwidth} Y Y@{}}
+\toprule
+Oznaczenie & Plik / odnośnik & Opis i powiązane zadanie\\
+\midrule
+Z1 & \pole{plik lub odnośnik} & \pole{opis}\\
+Z2 & \pole{plik lub odnośnik} & \pole{opis}\\
+\bottomrule
+\end{tabularx}
+\end{document}

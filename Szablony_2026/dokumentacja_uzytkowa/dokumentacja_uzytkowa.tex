@@ -1,0 +1,159 @@
+% Autor szablonu: dr Roman Czapla
+% Kompilacja: pdfLaTeX (dwukrotnie, aby zaktualizować spis treści).
+% Wymagane logo uczelni: images/logo.png (ścieżka względem pliku głównego).
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor,graphicx,tabularx,booktabs,array,enumitem,fancyhdr,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{accent}{HTML}{344B59}
+\definecolor{hintcolor}{HTML}{58636A}
+\hypersetup{pdfauthor={},pdftitle={Projekt inżynierski - Dokumentacja użytkowa}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Projekt inżynierski}
+\fancyhead[R]{\small Dokumentacja użytkowa}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Podpowiedzi są widoczne podczas wypełniania szablonu.
+% Przed oddaniem: uzupełnij pola, zastąp przykłady własną treścią
+% i zmień poniższy przełącznik na \podpowiedzifalse.
+\newif\ifpodpowiedzi
+\podpowiedzitrue
+%\podpowiedzifalse
+\newcommand{\podpowiedz}[1]{\ifpodpowiedzi\par\begingroup\small\color{hintcolor}\textit{Wskazówka: #1}\par\endgroup\fi}
+\newcommand{\pole}[1]{\textnormal{[#1]}}
+
+% Dane dokumentu - uzupełnij w jednym miejscu.
+% Ścieżkę logo można zmienić poniżej.
+\newcommand{\pliklogo}{images/logo.png}
+\newcommand{\logouczelni}{%
+  \includegraphics[width=0.8\textwidth,height=40mm,keepaspectratio]{\pliklogo}%
+}
+\newcommand{\tytulprojektu}{\pole{Tytuł projektu}}
+\newcommand{\rokakademicki}{\pole{2026/2027}}
+\newcommand{\semestrprojektu}{\pole{zimowy / letni}}
+\newcommand{\datadokumentu}{\pole{dd.mm.rrrr}}
+\newcommand{\wersjadokumentu}{\pole{1.0}}
+% Zespół dwuosobowy tylko za zgodą dyrekcji: zmień na \trzeciaosobafalse.
+\newif\iftrzeciaosoba
+\trzeciaosobatrue
+\newcommand{\studentA}{\pole{Imię i nazwisko osoby 1}}
+\newcommand{\studentB}{\pole{Imię i nazwisko osoby 2}}
+\newcommand{\studentC}{\pole{Imię i nazwisko osoby 3}}
+\newcommand{\albumA}{\pole{numer albumu}}
+\newcommand{\albumB}{\pole{numer albumu}}
+\newcommand{\albumC}{\pole{numer albumu}}
+\newcommand{\prowadzacyA}{\pole{Stopień lub tytuł, imię i nazwisko}}
+\newcommand{\prowadzacyB}{\pole{Stopień lub tytuł, imię i nazwisko}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Uniwersytet Komisji Edukacji Narodowej w Krakowie\par}
+{\normalsize Instytut Bezpieczeństwa i Informatyki\par}
+\vspace{8mm}
+\logouczelni\par
+\vspace{10mm}
+{\Large\bfseries\color{accent} PROJEKT INŻYNIERSKI\par}
+\vspace{3mm}
+{\large Dokumentacja użytkowa\par}
+\vspace{15mm}
+{\LARGE\bfseries\tytulprojektu\par}
+\vspace{15mm}
+{\small ZESPÓŁ PROJEKTOWY\par}
+\vspace{3mm}
+\begin{tabular}{ll}
+\studentA & Nr albumu: \albumA\\
+\studentB & Nr albumu: \albumB
+\iftrzeciaosoba\\
+\studentC & Nr albumu: \albumC\fi
+\end{tabular}
+\vspace{12mm}
+
+{\small PROWADZĄCY ZAJĘCIA PROJEKTOWE\par}
+\vspace{3mm}
+\prowadzacyA\par
+\prowadzacyB\par
+\vfill
+Rok akademicki: \rokakademicki\quad Semestr: \semestrprojektu\par
+Data dokumentu: \datadokumentu\quad Wersja: \wersjadokumentu\par
+\vspace{6mm}
+Kraków\par
+
+\end{titlepage}
+
+\tableofcontents
+\podpowiedz{Dokument jest skierowany do osoby korzystającej z rezultatu projektu. Zakres uzgodnij z prowadzącymi i dostosuj do odbiorcy: użytkownika aplikacji, operatora prototypu, odbiorcy animacji albo programisty korzystającego z biblioteki. Usuń podsekcje nieadekwatne. Nie powielaj opisu architektury ani instrukcji instalacji, jeśli znajdują się w osobnych dokumentach. Uzupełnij pola, usuń przykłady i wyłącz podpowiedzi przed oddaniem.}
+
+\section{Szczegółowa dokumentacja użytkowa}
+\subsection{Przeznaczenie i odbiorcy}
+\podpowiedz{Wyjaśnij, do czego służy rozwiązanie, kto może z niego korzystać i jakie zadania umożliwia. Podaj wersję projektu, której dotyczy instrukcja. Używaj języka zrozumiałego dla wskazanego odbiorcy.}
+\textbf{Przeznaczenie:} \pole{opis.}\par
+\textbf{Odbiorcy:} \pole{grupa użytkowników i potrzebne umiejętności.}\par
+\textbf{Wersja projektu:} \pole{oznaczenie i data.}
+
+
+\subsection{Rozpoczęcie korzystania}
+\podpowiedz{Podaj wymagania istotne dla użytkownika i sposób rozpoczęcia pracy: adres aplikacji, uruchamiany plik, odtwarzacz, urządzenie lub punkt wejścia do biblioteki. Wskaż potrzebne konto, uprawnienia i dane wejściowe, jeśli występują. Odwołaj się do dokumentacji instalacyjnej, jeśli jest wymagana; nie opisuj środowiska deweloperskiego.}
+\pole{Wymagania i sposób rozpoczęcia korzystania.}
+
+\subsection{Opis funkcji i sposobu obsługi}
+\podpowiedz{Opisz dostępne funkcje oraz sposób ich użycia, grupując je według zadań użytkownika. Wyjaśnij istotne elementy interfejsu, polecenia i ustawienia. Dla animacji może to być sposób odtwarzania i korzystania z przekazanych formatów; dla prototypu - sterowanie; dla biblioteki - publiczny interfejs i przykłady wywołań.}
+\pole{Opis funkcji i czynności użytkownika.}
+\podpowiedz{Dodaj czytelne zrzuty ekranu lub ilustracje tam, gdzie pomagają wykonać zadanie. Każdy rysunek powinien mieć podpis i odwołanie w tekście przez \texttt{\textbackslash ref}. Nie zastępuj instrukcji samymi obrazami.}
+% Przykład - odkomentuj po dodaniu pliku:
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{images/ekran.png}
+%   \caption{Widok funkcji z perspektywy użytkownika.}
+%   \label{fig:ekran}
+% \end{figure}
+
+\subsection{Przykładowe działanie}
+\podpowiedz{Przedstaw konkretne scenariusze najważniejszych zadań. Dla każdego podaj cel, warunki początkowe, przykładowe dane, kolejne kroki i oczekiwany rezultat. Przykład powinien być możliwy do odtworzenia. Powielaj poniższy blok według potrzeb.}
+\subsubsection{\pole{Nazwa scenariusza}}
+\textbf{Cel:} \pole{zadanie użytkownika.}\par
+\textbf{Warunki i dane:} \pole{stan początkowy i przykładowe dane.}
+\begin{enumerate}
+\item \pole{czynność użytkownika i reakcja rozwiązania.}
+\item \pole{kolejna czynność i reakcja.}
+\item \pole{zakończenie zadania.}
+\end{enumerate}
+\textbf{Oczekiwany rezultat:} \pole{efekt i sposób jego rozpoznania.}
+
+\subsection{Dane wejściowe i wyniki}
+\podpowiedz{Jeśli dotyczy: opisz obsługiwane formaty, wymagane pola, dopuszczalne wartości i ograniczenia danych. Wyjaśnij zapis, eksport, odtwarzanie lub interpretację wyników. Wskaż czynności mogące nadpisać lub usunąć dane. Dla animacji możesz opisać formaty plików wynikowych i parametry odtwarzania.}
+\pole{Przygotowanie danych i korzystanie z wyników.}
+
+\subsection{Problemy i komunikaty}
+\podpowiedz{Opisz typowe problemy z perspektywy użytkownika: jak je rozpoznać, co oznaczają i jakie działania podjąć. Podaj rzeczywiste komunikaty, jeśli występują. Dodaj wiersze według potrzeb.}
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\toprule
+Objaw / komunikat & Możliwa przyczyna & Działanie użytkownika\\
+\midrule
+\pole{objaw} & \pole{przyczyna} & \pole{rozwiązanie}\\
+\pole{objaw} & \pole{przyczyna} & \pole{rozwiązanie}\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Ograniczenia i zalecenia}
+\podpowiedz{Wskaż ograniczenia mające wpływ na korzystanie z projektu oraz praktyczne zalecenia. Jeśli użytkownik korzysta z funkcji AI, wyjaśnij charakter wyników, ich ograniczenia i potrzebę weryfikacji tam, gdzie ma to znaczenie. Nie dodawaj informacji o AI, jeśli nie jest częścią rozwiązania i nie wpływa na użytkowanie.}
+\pole{Ograniczenia i zalecenia dla użytkownika.}
+
+\subsection{Materiały pomocnicze}
+\podpowiedz{Wskaż przydatne instrukcje, przykładowe pliki oraz obowiązkowe nagranie pokazujące działanie lub rezultat oddanej wersji projektu. Podaj nazwy i lokalizację materiałów. Źródła zewnętrzne przywołane w instrukcji opisz tytułem, adresem i datą dostępu. Jeśli materiały zostały już wymienione w sprawozdaniu końcowym, możesz odwołać się do odpowiedniej sekcji. Podsekcję można usunąć, jeśli nie wnosi dodatkowych informacji; nie znosi to obowiązku przekazania nagrania i wskazania go w wykazie załączników sprawozdania końcowego.}
+\pole{Wykaz materiałów i ich lokalizacja lub odwołanie do sprawozdania końcowego.}
+\end{document}
